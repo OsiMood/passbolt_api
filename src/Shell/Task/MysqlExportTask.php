@@ -119,6 +119,9 @@ class MysqlExportTask extends AppShell
         if (!empty($config['password'])) {
             $cmd .= ' -p' . $config['password'];
         }
+        if (!empty($config['port'])) {
+            $cmd .= ' -P' . $config['port'];
+        }
         $cmd .= ' ' . $config['database'] . ' > ' . $dir . $file;
         $this->out('Saving backup file: ' . $dir . $file);
         exec($cmd, $output, $status);
